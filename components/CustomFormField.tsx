@@ -1,21 +1,30 @@
-"use client";
-import PhoneInput from "react-phone-number-input";
-import Image from "next/image";
-import "react-phone-number-input/style.css";
 import { E164Number } from "libphonenumber-js/core";
+import Image from "next/image";
+import ReactDatePicker from "react-datepicker";
+import { Control } from "react-hook-form";
+import PhoneInput from "react-phone-number-input";
 
+import { Checkbox } from "./ui/checkbox";
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "./ui/form";
+import { Input } from "./ui/input";
+import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
+import { Textarea } from "./ui/textarea";
 
-import { Input } from "@/components/ui/input";
-import { Control } from "react-hook-form";
-import { FormFieldType } from "./forms/PatientForm";
+export enum FormFieldType {
+  INPUT = "input",
+  TEXTAREA = "textarea",
+  PHONE_INPUT = "phoneInput",
+  CHECKBOX = "checkbox",
+  DATE_PICKER = "datePicker",
+  SELECT = "select",
+  SKELETON = "skeleton",
+}
 
 interface CustomProps {
   control: Control<any>;
